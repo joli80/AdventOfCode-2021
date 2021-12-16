@@ -69,16 +69,14 @@ foreach (var cave in caves)
 paths = new PathFinder().Find(caves.First());
 Console.WriteLine($"*** {paths.Count} PATHS ***");
 
-// foreach (var path in paths)
-// {
-//     Console.WriteLine($"{string.Join(",", path)}");
-// }
+Console.WriteLine("*************************************");
 
-// var oneSmallCave = paths.Where(p => p.Count(c => c.IsSmall) > 0).ToList();
+caves = systemBuilder.Build(firstSystem);
 
-// Console.WriteLine($"*** At most one small cave: {oneSmallCave.Count} PATHS ***");
+foreach (var cave in caves)
+{
+    Console.WriteLine($"{cave} ({(cave.IsSmall ? "small" : "large")}): {string.Join(",", cave.Caves)}");
+}
 
-// foreach (var path in oneSmallCave)
-// {
-//     Console.WriteLine($"{string.Join(",", path)}");
-// }
+paths = new PathFinder2().Find(caves.First());
+Console.WriteLine($"*** {paths.Count} PATHS ***");
