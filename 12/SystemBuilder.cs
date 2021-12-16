@@ -33,6 +33,6 @@ class SystemBuilder
 
         }
 
-        return caves.OrderBy(c => c.Order).ToList();
+        return caves.OrderBy(c => c.Order).ThenBy(c => c.Name).ToList();
     }
 }

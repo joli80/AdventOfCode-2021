@@ -3,6 +3,14 @@
 // https://adventofcode.com/2021/day/12
 Console.WriteLine("Starting https://adventofcode.com/2021/day/12...");
 
+string zeroSystem = @"start-A
+start-b
+A-c
+A-b
+b-d
+A-end
+b-end";
+
 string firstSystem = @"dc-end
 HN-start
 start-kj
@@ -71,7 +79,23 @@ Console.WriteLine($"*** {paths.Count} PATHS ***");
 
 Console.WriteLine("*************************************");
 
-caves = systemBuilder.Build(firstSystem);
+caves = systemBuilder.Build(zeroSystem);
+
+foreach (var cave in caves)
+{
+    Console.WriteLine($"{cave} ({(cave.IsSmall ? "small" : "large")}): {string.Join(",", cave.Caves)}");
+}
+
+paths = new PathFinder2().Find(caves.First());
+Console.WriteLine($"*** {paths.Count} PATHS ***");
+foreach (var path in paths)
+{
+    Console.WriteLine($"{string.Join(",", path)}");
+}
+
+Console.WriteLine("*************************************");
+
+caves = systemBuilder.Build(secondSystem);
 
 foreach (var cave in caves)
 {

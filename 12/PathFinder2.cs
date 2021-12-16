@@ -16,7 +16,7 @@ class PathFinder2
                 continue;
 
             var smallDuplicates = path.Where(c => c.IsSmall).GroupBy(c => c.Name).Where(g => g.Count() > 1);
-            if (cave.IsSmall && smallDuplicates.Any())
+            if (cave.IsSmall && path.Contains(cave) && smallDuplicates.Any())
                 continue;
 
             var newPath = new List<Cave>(path);
