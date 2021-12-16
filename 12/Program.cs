@@ -74,11 +74,11 @@ Console.WriteLine($"*** {paths.Count} PATHS ***");
 //     Console.WriteLine($"{string.Join(",", path)}");
 // }
 
-var oneSmallCave = paths.Where(p => p.Count(c => c.IsSmall) < 2).ToList();
+// var oneSmallCave = paths.Where(p => p.Count(c => c.IsSmall) > 0).ToList();
 
-Console.WriteLine($"*** At most one small cave: {oneSmallCave.Count} PATHS ***");
+// Console.WriteLine($"*** At most one small cave: {oneSmallCave.Count} PATHS ***");
 
-foreach (var path in oneSmallCave)
-{
-    Console.WriteLine($"{string.Join(",", path)}");
-}
+// foreach (var path in oneSmallCave)
+// {
+//     Console.WriteLine($"{string.Join(",", path)}");
+// }
